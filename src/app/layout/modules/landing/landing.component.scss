@@ -1,0 +1,19 @@
+@import "src/assets/styles/variables";
+
+.landing-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+        font-size: $heading-size;
+        strong {
+            text-decoration: underline $tertiary-color;
+        }
+    }
+
+    p {
+        font-size: $para-size;
+    }
+}
