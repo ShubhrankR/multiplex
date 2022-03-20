@@ -5,7 +5,7 @@ import {WrapperComponent} from "./layout/core/wrapper/wrapper.component";
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {

@@ -1,21 +1,23 @@
-<header>
-    <nav class="navbar">
-        <div class="navbar-brand">
-            <a class="brand-anchor" href="">
-                <img alt="TMDB logo" class="brand-img" src="/assets/images/blue_long_2.svg">
-            </a>
-        </div>
-        <div class="navbar-content">
-            <div class="navbar-left">
-                <ul class="navbar-list">
-                    <li routerLink="/home">Home</li>
-                </ul>
+<ng-container *ngIf="isLoggedIn">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a class="brand-anchor" href="">
+                    <img alt="TMDB logo" class="brand-img" src="/assets/images/blue_long_2.svg">
+                </a>
             </div>
-            <div class="navbar-right">
-                <ul class="navbar-list">
-                    <li routerLink="/login">Login / Logout</li>
-                </ul>
+            <div class="navbar-content">
+                <div class="navbar-left">
+                    <ul class="navbar-list">
+                        <li routerLink="/home">Home</li>
+                    </ul>
+                </div>
+                <div class="navbar-right">
+                    <ul class="navbar-list">
+                        <li (click)="logout()">Logout</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
+</ng-container>

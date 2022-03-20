@@ -7,6 +7,7 @@ import {CoreModule} from "./core/core.module";
 import {DataModule} from "./data/data.module";
 import {LayoutModule} from "./layout/layout.module";
 import {SharedModule} from "./shared/shared.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import {SharedModule} from "./shared/shared.module";
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         CoreModule,
         DataModule,

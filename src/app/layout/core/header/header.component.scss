@@ -1,5 +1,11 @@
 @import "src/assets/styles/variables";
 
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
