@@ -1,0 +1,84 @@
+@import "src/assets/styles/variables";
+
+$ruler: 16px;
+$color-shadow: #acacac;
+$color-white: #ffffff;
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+
+    figure {
+        img {
+            width: 100%;
+        }
+    }
+
+    h1 {
+        margin: 1em 0 0.5em;
+        text-align: center;
+    }
+
+    form {
+        min-width: 280px;
+    }
+
+    button, input {
+        border: 0;
+        outline: 0;
+        font-size: 1em;
+        border-radius: $ruler * 20;
+        padding: $ruler;
+        background-color: $bg-color4;
+        text-shadow: 1px 1px 0 white;
+    }
+
+    input {
+        box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+        box-sizing: border-box;
+        transition: all 0.2s ease-in-out;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+
+        &:focus {
+            box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+        }
+    }
+
+    .form-row {
+        padding: 1em 0;
+    }
+
+    .form-button {
+        button {
+            color: #61677C;
+            box-shadow: -5px -5px 20px $color-white, 5px 5px 20px $color-shadow;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin: 1em 0;
+
+            &:hover {
+                box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+            }
+
+            &:active {
+                box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+            }
+        }
+    }
+
+    .error-message {
+        text-align: center;
+
+        p {
+            font-size: 0.8em;
+        }
+    }
+}
