@@ -1,5 +1,21 @@
-<section class="landing-section neumorphism-card">
-    <h1>Welcome to <strong>MULTIPLEX</strong> by TMDB</h1>
-    <hr>
-    <p>Here you can check details of movies and shows that you like</p>
+<section class="landing-section neumorphism-card" [ngStyle]="{'justify-content': moviesLoaded ? '' : 'center'}">
+    <ng-container *ngIf="moviesLoaded; else showLoading">
+        <h1>Welcome to <strong>MULTIPLEX</strong></h1>
+        <h1>by</h1>
+        <figure>
+            <img alt="The Movie Database logo" src="/assets/images/blue_square_1.svg">
+        </figure>
+        <p>Here you can check details of movies and shows that you like</p>
+        <hr>
+        <div class="movies-section">
+            <ng-container *ngFor="let movie of displayMoviesDataSet; let i = index">
+                <multiplex-movie-card [maxWidth]="'200px'" [minHeight]="'331px'" [movie]="movie"></multiplex-movie-card>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-template #showLoading>
+        <div class="loading">
+            <multiplex-loading></multiplex-loading>
+        </div>
+    </ng-template>
 </section>

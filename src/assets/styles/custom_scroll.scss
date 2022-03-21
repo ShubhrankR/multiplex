@@ -1,0 +1,36 @@
+// Scrollbar
+.scroll {
+    width: 300px;
+    height: 300px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #E0EFEC;
+    box-shadow: -9px -12px 15px rgba(#fff, 0.3), 9px 12px 15px rgba(#A3B1C6, 0.3);
+    overflow: hidden;
+    overflow-y: scroll;
+    font-size: 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        box-shadow: -2px -2px 5px #fff, 2px 2px 5px #A3B1C6;
+    }
+
+    // Scrollbar styling
+    &::-webkit-scrollbar {
+        width: 12px;
+        -webkit-appearance: none;
+
+        &-thumb {
+            background-color: rgba(108, 121, 119, 0.44);
+            border: 2px solid #fff;
+            border-radius: 1rem;
+        }
+    }
+
+    section {
+        width: 100%;
+        height: 100vh;
+    }
+}
