@@ -7,9 +7,13 @@
     text-align: center;
     max-width: $section-max-width;
     margin: 0 auto;
+    height: 80vh;
+    overflow-y: auto;
+    border-radius: 1rem;
 
     h1 {
         font-size: $heading-size;
+
         strong {
             text-decoration: underline $tertiary-color;
         }
@@ -17,5 +21,20 @@
 
     p {
         font-size: $para-size;
+    }
+
+    figure {
+        padding: 1.5rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .movies-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
 }

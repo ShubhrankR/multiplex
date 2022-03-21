@@ -1,12 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MovieCardComponent} from './components/movie-card/movie-card.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+        MovieCardComponent,
+        LoadingComponent
+    ],
+    imports: [
+        CommonModule
+    ],
+    exports: [
+        MovieCardComponent,
+        LoadingComponent
+    ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

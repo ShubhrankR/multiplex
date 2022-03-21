@@ -1,0 +1,25 @@
+@import "src/assets/styles/variables";
+
+.movie-card {
+    margin: 1rem;
+    box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px;
+    background-color: white;
+    border-radius: 1rem;
+    border-color: transparent;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    figure {
+        padding: 0;
+
+        img {
+            border-radius: 1rem;
+            width: 100%;
+        }
+    }
+
+    &:hover {
+        box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    }
+}
