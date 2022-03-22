@@ -22,11 +22,6 @@ export class TopRatedComponent implements OnInit {
 
     ngOnInit(): void {
         this.fetchTopMovies();
-        this.dataService.getMovieDetail(278).subscribe({
-            next: (response: MovieDetailAPIResponseModel) => {
-                console.log('Movie detail -', response)
-            }
-        })
     }
 
     fetchTopMovies() {

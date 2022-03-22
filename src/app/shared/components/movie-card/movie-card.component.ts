@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MovieDetailModel} from "../../../data/schema/data.model";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'multiplex-movie-card',
@@ -11,10 +12,14 @@ export class MovieCardComponent implements OnInit {
     @Input() maxWidth!: string;
     @Input() minHeight!: string;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit(): void {
+    }
+
+    redirectTo(movieId: number) {
+        this.router.navigate(['movies/movieDetails/' + movieId]);
     }
 
 }
