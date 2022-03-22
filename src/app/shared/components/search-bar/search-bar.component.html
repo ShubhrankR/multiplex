@@ -1,0 +1,14 @@
+<div class="search-bar-container">
+    <form #form autocomplete="off" (ngSubmit)="onSubmitOfSearch()">
+        <div #finder class="finder">
+            <div class="finder__outer">
+                <div class="finder__inner">
+                    <div class="finder__icon" ref="icon"></div>
+                    <label for="searchInput">
+                        <input #finder__input class="finder__input" id="searchInput" [(ngModel)]="searchText" name="searchInput" type="search">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

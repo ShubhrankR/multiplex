@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {DataService} from "../../../data/services/data.service";
 import {GetTopRatedMoviesAPIResponseModel, MovieDetailModel} from "../../../data/schema/data.model";
 

@@ -1,11 +1,11 @@
-<section class="landing-section neumorphism-card" [ngStyle]="{'justify-content': moviesLoaded ? '' : 'center'}">
+<section [ngStyle]="{'justify-content': moviesLoaded ? '' : 'center'}" class="landing-section neumorphism-card">
     <ng-container *ngIf="moviesLoaded; else showLoading">
-        <h1>Welcome to <strong>MULTIPLEX</strong></h1>
-        <h1>by</h1>
         <figure>
             <img alt="The Movie Database logo" src="/assets/images/blue_square_1.svg">
         </figure>
-        <p>Here you can check details of movies and shows that you like</p>
+        <div class="search-bar">
+            <multiplex-search-bar></multiplex-search-bar>
+        </div>
         <hr>
         <div class="movies-section">
             <ng-container *ngFor="let movie of displayMoviesDataSet; let i = index">
