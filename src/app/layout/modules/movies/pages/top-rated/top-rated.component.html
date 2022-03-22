@@ -1,0 +1,18 @@
+<section [ngStyle]="{'justify-content': moviesLoaded ? '' : 'center'}" class="page-main-section neumorphic-card">
+    <ng-container *ngIf="moviesLoaded; else showLoading">
+        <div class="search-bar">
+            <multiplex-search-bar></multiplex-search-bar>
+        </div>
+        <hr>
+        <div class="movies-section">
+            <ng-container *ngFor="let movie of displayMoviesDataSet; let i = index">
+                <multiplex-movie-card [maxWidth]="'200px'" [minHeight]="'331px'" [movie]="movie"></multiplex-movie-card>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-template #showLoading>
+        <div class="loading">
+            <multiplex-loading></multiplex-loading>
+        </div>
+    </ng-template>
+</section>

@@ -19,13 +19,15 @@ List of resources that were used while developing this project.
 7. https://webcode.tools/generators/css/box-shadow
 8. https://www.joshwcomeau.com/shadow-palette/
 9. [Center div on screen](https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/)
-11. [Custom ScrollBars](https://ishadeed.com/article/custom-scrollbars-css/)
-12. API caching
+10. [Custom ScrollBars](https://ishadeed.com/article/custom-scrollbars-css/)
+11. API caching
     1. https://fibotalk.com/blog/how-to-cache-api-responses-in-front-end-in-angular/
     2. https://danielk.tech/home/angular-http-cache-how-to
     3. https://indepth.dev/posts/1450/how-to-use-ts-decorators-to-add-caching-logic-to-api-calls
     4. https://stackoverflow.com/questions/49797910/angular-5-caching-http-service-api-calls
-13. [Neumorphism Designs](https://appcode.app/15-css-neumorphism-design-examples-and-code/)
+12. [Neumorphism Designs](https://appcode.app/15-css-neumorphism-design-examples-and-code/)
+13. [Neumorphic Search Bar](https://codepen.io/tdtrung17693/pen/BaozOzQ)
+14. [Angular way of listening DOM events - Renderer2](https://medium.com/claritydesignsystem/four-ways-of-listening-to-dom-events-in-angular-part-3-renderer2-listen-14c6fe052b59)
 
 ## App configuration :-
 

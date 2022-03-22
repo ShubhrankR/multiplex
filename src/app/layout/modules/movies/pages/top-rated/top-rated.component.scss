@@ -1,0 +1,15 @@
+@import "../../../../../../assets/styles/variables";
+
+.page-main-section {
+
+    .search-bar {
+        margin: 2rem 0;
+    }
+
+    .movies-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
