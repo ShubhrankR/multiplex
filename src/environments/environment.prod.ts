@@ -1,3 +1,4 @@
 export const environment = {
-    production: true
+    production: true,
+    basHref: 'https://shubhrankr.github.io/multiplex/'
 };
