@@ -28,6 +28,8 @@ List of resources that were used while developing this project.
 12. [Neumorphism Designs](https://appcode.app/15-css-neumorphism-design-examples-and-code/)
 13. [Neumorphic Search Bar](https://codepen.io/tdtrung17693/pen/BaozOzQ)
 14. [Angular way of listening DOM events - Renderer2](https://medium.com/claritydesignsystem/four-ways-of-listening-to-dom-events-in-angular-part-3-renderer2-listen-14c6fe052b59)
+15. [Angular event binding/user input](https://angular.io/guide/user-input)
+16. [How do you detect the clearing of a "search" HTML5 input?](https://stackoverflow.com/questions/2977023/how-do-you-detect-the-clearing-of-a-search-html5-input)
 
 ## App configuration :-
 

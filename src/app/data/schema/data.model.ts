@@ -22,6 +22,10 @@ export interface MovieDetailModel {
     vote_average: number;
 }
 
+export interface GetPopularMoviesAPIResponseModel extends GetTopRatedMoviesAPIResponseModel {
+
+}
+
 export interface GetTmDbConfigAPIResponseModel {
     images: {
         base_url: string;

@@ -1,11 +1,14 @@
 <div class="search-bar-container">
-    <form #form autocomplete="off" (ngSubmit)="onSubmitOfSearch()">
+    <form #form (ngSubmit)="onSubmitOfSearch()" autocomplete="off" role="search">
         <div #finder class="finder">
             <div class="finder__outer">
                 <div class="finder__inner">
                     <div class="finder__icon" ref="icon"></div>
                     <label for="searchInput">
-                        <input #finder__input class="finder__input" id="searchInput" [(ngModel)]="searchText" name="searchInput" type="search">
+                        <input #finder__input (search)="onSearchEvent(finder__input.value)" [(ngModel)]="searchText"
+                               aria-label="Search on Movies title" class="finder__input"
+                               id="searchInput" name="searchInput"
+                               placeholder="Search with title of movies..." type="search">
                     </label>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'multiplex-search-bar',
@@ -9,6 +9,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     @ViewChild('finder__input', {static: true}) input!: ElementRef;
     @ViewChild('finder', {static: true}) finder!: ElementRef;
     @ViewChild('form', {static: true}) form!: ElementRef;
+    @Output() outputtingSearchKeyword = new EventEmitter<string>();
 
     unListenFocus!: () => void;
     unListenBlur!: () => void;
@@ -27,13 +28,11 @@ export class SearchBarComponent implements OnInit, OnDestroy {
         this.unListenFocus = this.renderer2.listen(inputEl, 'focus', () => {
             this.renderer2.addClass(finderEl, 'active');
         });
-
         this.unListenBlur = this.renderer2.listen(inputEl, 'blur', () => {
             if (inputEl.value.length === 0) {
                 this.renderer2.removeClass(finderEl, 'active');
             }
         });
-
         this.unListenSubmit = this.renderer2.listen(formEl, 'submit', (event) => {
             event.preventDefault();
             this.renderer2.addClass(finderEl, 'processing');
@@ -50,7 +49,11 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     }
 
     onSubmitOfSearch() {
-        console.log('onSubmitOfSearch() -- text =', this.searchText);
+        this.outputtingSearchKeyword.emit(this.searchText);
+    }
+
+    onSearchEvent(inputVal: string) {
+        inputVal === '' ? this.outputtingSearchKeyword.emit('') : '';
     }
 
     ngOnDestroy() {
