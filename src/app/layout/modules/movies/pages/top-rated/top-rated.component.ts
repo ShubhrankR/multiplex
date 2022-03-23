@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {
-    GetTopRatedMoviesAPIResponseModel,
-    MovieDetailAPIResponseModel,
-    MovieDetailModel
-} from "../../../../../data/schema/data.model";
+import {GetTopRatedMoviesAPIResponseModel, MovieDetailModel} from "../../../../../data/schema/data.model";
 import {DataService} from "../../../../../data/services/data.service";
 import {Router} from "@angular/router";
 
@@ -14,7 +10,9 @@ import {Router} from "@angular/router";
 })
 export class TopRatedComponent implements OnInit {
     displayMoviesDataSet!: MovieDetailModel[];
+    originalMoviesDataSet!: MovieDetailModel[];
     moviesLoaded = false;
+    moviesNotFound = false;
 
     constructor(private dataService: DataService,
                 private router: Router) {
@@ -22,6 +20,9 @@ export class TopRatedComponent implements OnInit {
 
     ngOnInit(): void {
         this.fetchTopMovies();
+        this.dataService.searchAPI().subscribe((res) => {
+            console.log('response search -', res)
+        })
     }
 
     fetchTopMovies() {
@@ -41,7 +42,20 @@ export class TopRatedComponent implements OnInit {
                 ...film,
                 poster_path: 'https://image.tmdb.org/t/p/w300/' + film.poster_path
             }
-        })
+        });
+        this.originalMoviesDataSet = JSON.parse(JSON.stringify(this.displayMoviesDataSet));
         this.moviesLoaded = true;
+    }
+
+    updateMoviesDataSetWithSearchKeyword(searchKeyword: string) {
+        if (searchKeyword === '' || searchKeyword === void 0) {
+            this.moviesNotFound = false;
+            this.displayMoviesDataSet = JSON.parse(JSON.stringify(this.originalMoviesDataSet));
+            return;
+        }
+        this.displayMoviesDataSet = this.originalMoviesDataSet.filter((film: MovieDetailModel) => {
+            return film.title.toLocaleLowerCase().includes(searchKeyword.toLocaleLowerCase());
+        });
+        this.moviesNotFound = this.displayMoviesDataSet.length === 0;
     }
 }

@@ -34,4 +34,8 @@ export class DataService {
             '&language=' + DataApiConstants.apiRoutes.lang + '&page=' + page + '&region=' + DataApiConstants.apiRoutes.region,
             AppConstants.requestOptions);
     }
+
+    searchAPI(): Observable<any> {
+        return this.http.get('https://api.themoviedb.org/3/search/movie?api_key=417160d71f440c342f0223b2657f8cf4&language=en-US&query=action&page=1&include_adult=false')
+    }
 }
