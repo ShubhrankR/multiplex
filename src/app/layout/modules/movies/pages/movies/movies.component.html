@@ -11,7 +11,7 @@
             </ng-container>
             <ng-template #moviesFound>
                 <ng-container *ngFor="let movie of displayMoviesDataSet; let i = index">
-                    <multiplex-movie-card [maxWidth]="'200px'" [minHeight]="'331px'"
+                    <multiplex-movie-card (click)="redirectTo(movie.id)" [maxWidth]="'200px'" [minHeight]="'331px'"
                                           [movie]="movie"></multiplex-movie-card>
                 </ng-container>
             </ng-template>

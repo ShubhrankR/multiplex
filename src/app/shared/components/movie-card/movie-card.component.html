@@ -1,4 +1,4 @@
-<div (click)="redirectTo(movie.id)" [ngStyle]="{'max-width': maxWidth, 'min-height': minHeight}" class="movie-card">
+<div [ngStyle]="{'max-width': maxWidth, 'min-height': minHeight}" class="movie-card">
     <figure>
         <img [alt]="movie.original_title" [src]="movie.poster_path">
         <figcaption>{{movie.title}}</figcaption>

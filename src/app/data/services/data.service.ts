@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {AppConstants} from "../../core/constants/app.constants";
 import {DataApiConstants} from "../data-api.constants";
 import {
+    GetPopularMoviesAPIResponseModel,
     GetTmDbConfigAPIResponseModel,
     GetTopRatedMoviesAPIResponseModel,
     MovieDetailAPIResponseModel
@@ -22,17 +23,35 @@ export class DataService {
             'configuration?api_key=' + DataApiConstants.apiRoutes.key, AppConstants.requestOptions);
     }
 
+    /**
+     *
+     * @param movie_Id
+     */
     getMovieDetail(movie_Id: number): Observable<MovieDetailAPIResponseModel> {
         return this.http.get<MovieDetailAPIResponseModel>(DataApiConstants.apiRoutes.domain.endpoint +
             DataApiConstants.apiRoutes.movies.movieDetail.endpoint + '/' + movie_Id + '?api_key=' +
             DataApiConstants.apiRoutes.key, AppConstants.requestOptions);
     }
 
+    /**
+     *
+     * @param page
+     */
     getTopRatedMovies(page: Number): Observable<GetTopRatedMoviesAPIResponseModel> {
         return this.http.get<GetTopRatedMoviesAPIResponseModel>(DataApiConstants.apiRoutes.domain.endpoint +
             DataApiConstants.apiRoutes.movies.topRatedMovies.endpoint + '?api_key=' + DataApiConstants.apiRoutes.key +
             '&language=' + DataApiConstants.apiRoutes.lang + '&page=' + page + '&region=' + DataApiConstants.apiRoutes.region,
             AppConstants.requestOptions);
+    }
+
+    /**
+     *
+     * @param page
+     */
+    getPopularMovies(page: number): Observable<GetPopularMoviesAPIResponseModel> {
+        return this.http.get<GetPopularMoviesAPIResponseModel>(DataApiConstants.apiRoutes.domain.endpoint +
+            DataApiConstants.apiRoutes.movies.popularMovies.endpoint + '?api_key=' + DataApiConstants.apiRoutes.key +
+            '&language=' + DataApiConstants.apiRoutes.lang + '&page=' + page, AppConstants.requestOptions);
     }
 
     searchAPI(): Observable<any> {

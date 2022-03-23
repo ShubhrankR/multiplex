@@ -1,1 +1,23 @@
-<p>about-movie works!</p>
+<section [ngStyle]="{'justify-content': movieInfoLoaded ? '' : 'center'}" class="page-main-section neumorphic-card">
+    <ng-container *ngIf="movieInfoLoaded; else showLoading">
+        <div class="movie-details">
+            <h1>{{movieInfo.title}}</h1>
+            <div class="card">
+                <figure>
+                    <img [alt]="movieInfo.original_title" [src]="movieInfo.backdrop_path">
+                    <figcaption>{{movieInfo.tagline}}</figcaption>
+                </figure>
+                <div class="content">
+                    <p>{{movieInfo.overview}} <strong>{{movieInfo.status}}</strong> on
+                        <strong>{{movieInfo.release_date}}</strong></p>
+                </div>
+                <a [href]="movieInfo.homepage" target="_blank">Click to Watch</a>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #showLoading>
+        <div class="loading">
+            <multiplex-loading></multiplex-loading>
+        </div>
+    </ng-template>
+</section>

@@ -1,0 +1,34 @@
+@import "../../../../../../assets/styles/variables";
+
+.movie-details {
+    h1 {
+        padding: 0 0 1rem 0;
+    }
+
+    .card {
+        figure {
+            margin: 1rem;
+
+            img {
+                width: 100%;
+                border-radius: 2rem;
+            }
+
+            figcaption {
+                font-size: 0.8rem;
+            }
+        }
+
+        .content {
+            margin: 1rem;
+
+            p {
+                text-align: justify;
+
+                strong {
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+}
