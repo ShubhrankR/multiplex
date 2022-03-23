@@ -1,40 +1,31 @@
 @import "src/assets/styles/variables";
 
-.landing-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: $section-max-width;
-    margin: 0 auto;
-    height: 80vh;
-    overflow-y: auto;
-    border-radius: 1rem;
+.page-main-section {
+    justify-content: center;
 
-    h1 {
-        font-size: $heading-size;
+    .section-container {
+        h1 {
+            font-size: $heading-size;
 
-        strong {
-            text-decoration: underline $tertiary-color;
+            strong {
+                text-decoration: underline $tertiary-color;
+            }
         }
-    }
 
-    p {
-        font-size: $para-size;
-    }
-
-    figure {
-        padding: 1.5rem;
-
-        img {
-            width: 100%;
+        p {
+            font-size: $para-size;
         }
-    }
 
-    .movies-section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        figure {
+            padding: 1.5rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .button-enclosure {
+            margin: 1rem 0;
+        }
     }
 }
