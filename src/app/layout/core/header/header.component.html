@@ -1,8 +1,8 @@
-<ng-container *ngIf="isLoggedIn">
+@if (authService.isLoggedIn()) {
     <header>
         <nav class="navbar">
             <div class="navbar-brand">
-                <a class="brand-anchor" href="">
+                <a class="brand-anchor" routerLink="/home">
                     <img alt="TMDB logo" class="brand-img" src="assets/images/blue_long_2.svg">
                 </a>
             </div>
@@ -20,4 +20,4 @@
             </div>
         </nav>
     </header>
-</ng-container>
+}

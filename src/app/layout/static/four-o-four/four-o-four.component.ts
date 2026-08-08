@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'multiplex-four-o-four',
-  templateUrl: './four-o-four.component.html',
-  styleUrls: ['./four-o-four.component.scss']
+    selector: 'multiplex-four-o-four',
+    standalone: true,
+    templateUrl: './four-o-four.component.html',
+    styleUrls: ['./four-o-four.component.scss']
 })
-export class FourOFourComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class FourOFourComponent {}

@@ -3,26 +3,33 @@
         <img alt="The Movie DataBase Logo" src="assets/images/blue_square_2-logo.svg">
     </figure>
     <h1>Login to Explore</h1>
+
     <form (ngSubmit)="onSubmit()">
         <div class="form-row">
-            <input [(ngModel)]="userName" id="username" name="username" placeholder="Username" required type="text">
+            <input [ngModel]="userName()" (ngModelChange)="userName.set($event)" autocomplete="username" id="username" name="username" placeholder="Username" required type="text">
         </div>
         <div class="form-row">
-            <input [(ngModel)]="userPassword" id="password" name="password" placeholder="Password" required
-                   type="password">
+            <input [ngModel]="userPassword()" (ngModelChange)="userPassword.set($event)" autocomplete="current-password" id="password" name="password" placeholder="Password" required type="password">
         </div>
         <div class="form-button">
             <button class="neumorphic-button" type="submit">Submit</button>
         </div>
-        <ng-container *ngIf="areFieldsEmpty">
+
+        @if (areFieldsEmpty()) {
             <div class="error-message">
                 <p>* Both Fields are required</p>
             </div>
-        </ng-container>
-        <ng-container *ngIf="isUserNamePassInCorrect">
+        }
+
+        @if (isUserNamePassInCorrect()) {
             <div class="error-message">
                 <p>* Username and password are incorrect</p>
             </div>
-        </ng-container>
+        }
     </form>
+
+    <div class="demo-credentials-note">
+        <p>Test credentials: <strong>admin</strong> / <strong>admin</strong></p>
+        <button class="demo-fill-btn" type="button" (click)="autoFillDemoCredentials()">Auto-fill</button>
+    </div>
 </section>

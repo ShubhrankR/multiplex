@@ -1,5 +1,6 @@
-@import "src/assets/styles/variables";
-@import '~ngx-toastr/toastr';
+@use "src/assets/styles/variables" as *;
+@use 'ngx-toastr/toastr';
+@use "assets/styles/custom_scroll";
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -91,4 +92,3 @@ hr {
     }
 }
 
-@import "assets/styles/custom_scroll";

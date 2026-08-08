@@ -1,23 +1,22 @@
-<section [ngStyle]="{'justify-content': movieInfoLoaded ? '' : 'center'}" class="page-main-section neumorphic-card">
-    <ng-container *ngIf="movieInfoLoaded; else showLoading">
+<section [ngStyle]="{'justify-content': movieInfoLoaded() ? '' : 'center'}" class="page-main-section neumorphic-card">
+    @if (movieInfoLoaded() && movieInfo(); as info) {
         <div class="movie-details">
-            <h1>{{movieInfo.title}}</h1>
+            <h1>{{info.title}}</h1>
             <div class="card">
                 <figure>
-                    <img [alt]="movieInfo.original_title" [src]="movieInfo.backdrop_path">
-                    <figcaption>{{movieInfo.tagline}}</figcaption>
+                    <img [alt]="info.original_title" [src]="info.backdrop_path">
+                    <figcaption>{{info.tagline}}</figcaption>
                 </figure>
                 <div class="content">
-                    <p>{{movieInfo.overview}} <strong>{{movieInfo.status}}</strong> on
-                        <strong>{{movieInfo.release_date}}</strong></p>
+                    <p>{{info.overview}} <strong>{{info.status}}</strong> on
+                        <strong>{{info.release_date}}</strong></p>
                 </div>
-                <a [href]="movieInfo.homepage" target="_blank">Click to Watch</a>
+                <a [href]="info.homepage" target="_blank">Click to Watch</a>
             </div>
         </div>
-    </ng-container>
-    <ng-template #showLoading>
+    } @else {
         <div class="loading">
             <multiplex-loading></multiplex-loading>
         </div>
-    </ng-template>
+    }
 </section>

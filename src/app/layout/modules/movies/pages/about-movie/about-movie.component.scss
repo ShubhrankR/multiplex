@@ -1,4 +1,4 @@
-@import "../../../../../../assets/styles/variables";
+@use "src/assets/styles/variables" as *;
 
 .movie-details {
     h1 {
