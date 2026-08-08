@@ -1,12 +1,12 @@
 # MultiPlex - TMDB Movie Explorer 🎬
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-ShubhrankR%2Fmultiplex-blue?logo=github)](https://github.com/ShubhrankR/multiplex)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?logo=github)](https://shubhrankr.github.io/multiplex/#/login)
 
 **MultiPlex** is a modern single-page web application for discovering and exploring your favorite movies and TV shows, powered by **[The Movie Database (TMDB) API](https://www.themoviedb.org/)**.
 
 The project features a sleek **Neumorphic design system**, fully updated to **Angular 19+** utilizing **Standalone Components**, **Angular Signals**, and **Modern Template Control Flow**.
 
-🔗 **GitHub Repository Link**: [https://github.com/ShubhrankR/multiplex](https://github.com/ShubhrankR/multiplex)
+🌐 **Live Application URL**: [https://shubhrankr.github.io/multiplex/#/login](https://shubhrankr.github.io/multiplex/#/login)
 
 ---
 
@@ -17,7 +17,7 @@ For quick local testing and exploration of the application features:
 - **Username:** `admin`
 - **Password:** `admin`
 
-*(Note: The login page includes a built-in "Auto-fill Test Creds" helper button for instant access).*
+*(Note: The login page includes a built-in "Auto-fill Credentials" helper button for instant access).*
 
 ---
 
