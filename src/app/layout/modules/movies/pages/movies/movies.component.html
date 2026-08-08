@@ -1,25 +1,23 @@
-<section [ngStyle]="{'justify-content': moviesLoaded ? '' : 'center'}" class="page-main-section neumorphic-card">
-    <ng-container *ngIf="moviesLoaded; else showLoading">
+<section [ngStyle]="{'justify-content': moviesLoaded() ? '' : 'center'}" class="page-main-section neumorphic-card">
+    @if (moviesLoaded()) {
         <div class="search-bar">
             <multiplex-search-bar
                 (outputtingSearchKeyword)="updateMoviesDataSetWithSearchKeyword($event)"></multiplex-search-bar>
         </div>
         <hr>
         <div class="movies-section">
-            <ng-container *ngIf="moviesNotFound; else moviesFound">
+            @if (moviesNotFound()) {
                 <h1>Sorry! No movies available with this title.</h1>
-            </ng-container>
-            <ng-template #moviesFound>
-                <ng-container *ngFor="let movie of displayMoviesDataSet; let i = index">
+            } @else {
+                @for (movie of displayMoviesDataSet(); track movie.id) {
                     <multiplex-movie-card (click)="redirectTo(movie.id)" [maxWidth]="'200px'" [minHeight]="'331px'"
                                           [movie]="movie"></multiplex-movie-card>
-                </ng-container>
-            </ng-template>
+                }
+            }
         </div>
-    </ng-container>
-    <ng-template #showLoading>
+    } @else {
         <div class="loading">
             <multiplex-loading></multiplex-loading>
         </div>
-    </ng-template>
+    }
 </section>

@@ -1,4 +1,4 @@
-@import "src/assets/styles/variables";
+@use "src/assets/styles/variables" as *;
 
 .page-main-section {
     justify-content: center;

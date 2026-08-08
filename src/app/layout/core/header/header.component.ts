@@ -1,30 +1,25 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../../core/services/auth.service";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector: 'multiplex-header',
+    standalone: true,
+    imports: [RouterLink],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-    isLoggedIn = false;
+export class HeaderComponent {
+    /**
+     * Inject AuthService directly to access the isLoggedIn signal reactively in the template.
+     */
+    constructor(
+        public authService: AuthService,
+        private router: Router
+    ) {}
 
-    constructor(private authService: AuthService,
-                private router: Router) {
-        this.authService.currentUserState.subscribe({
-            next: (val: boolean) => {
-                this.isLoggedIn = val;
-            }
-        });
-    }
-
-    ngOnInit(): void {
-    }
-
-    logout() {
+    logout(): void {
         this.authService.logoutUser();
         this.router.navigate(['login']);
     }
-
 }

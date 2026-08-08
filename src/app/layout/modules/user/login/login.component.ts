@@ -1,43 +1,64 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {UserModel} from "../../../../data/schema/user.model";
-import {AuthService} from "../../../../core/services/auth.service";
+import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { UserModel } from '../../../../data/schema/user.model';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
     selector: 'multiplex-login',
+    standalone: true,
+    imports: [FormsModule],
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-    userName!: string;
-    userPassword!: string;
-    areFieldsEmpty = false;
-    isUserNamePassInCorrect = false;
+export class LoginComponent {
+    /**
+     * Angular Signals for reactive form state management.
+     * Signals encapsulate mutable state in a fine-grained reactive wrapper.
+     */
+    readonly userName = signal<string>('');
+    readonly userPassword = signal<string>('');
+    readonly areFieldsEmpty = signal<boolean>(false);
+    readonly isUserNamePassInCorrect = signal<boolean>(false);
 
-    constructor(private router: Router,
-                private authService: AuthService) {
+    constructor(
+        private router: Router,
+        private authService: AuthService
+    ) {}
+
+    /**
+     * Auto-fill helper for test credentials requested for easier app testing.
+     */
+    autoFillDemoCredentials(): void {
+        this.userName.set('admin');
+        this.userPassword.set('admin');
+        this.areFieldsEmpty.set(false);
+        this.isUserNamePassInCorrect.set(false);
     }
 
-    ngOnInit(): void {
-    }
+    onSubmit(): void {
+        const uName = this.userName().trim();
+        const uPass = this.userPassword().trim();
 
-    onSubmit() {
-        if (this.userPassword === undefined || this.userPassword === void 0 || this.userName === '' || this.userPassword === '') {
-            this.areFieldsEmpty = true;
+        if (!uName || !uPass) {
+            this.areFieldsEmpty.set(true);
+            this.isUserNamePassInCorrect.set(false);
             return;
         }
-        this.areFieldsEmpty = false;
-        if (this.userName !== 'admin' || this.userPassword !== 'admin') {
-            this.isUserNamePassInCorrect = true;
+
+        this.areFieldsEmpty.set(false);
+
+        if (uName !== 'admin' || uPass !== 'admin') {
+            this.isUserNamePassInCorrect.set(true);
             return;
         }
-        this.isUserNamePassInCorrect = false;
-        const userData = new UserModel(this.userName, this.userPassword);
+
+        this.isUserNamePassInCorrect.set(false);
+        const userData = new UserModel(uName, uPass);
         if (this.authService.validateUserCredentials(userData)) {
             this.router.navigate(['home']).then(() => {
                 console.log('Redirected to home');
-            })
+            });
         }
     }
-
 }
